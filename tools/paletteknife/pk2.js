@@ -55,7 +55,7 @@ nom = nom.replace(/[^A-Za-z0-9]/g,"_");
 nom = nom + "_gp";
 console.log("nom: " + nom);
 
-var url3 = document.querySelectorAll('a')[3].href;
+var url3 = document.querySelectorAll('div.scheme a')[0].href;
 console.log("url3: " + url3);
 
 
