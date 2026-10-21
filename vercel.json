@@ -1,0 +1,14 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "buildCommand": "",
+  "outputDirectory": ".",
+  "cleanUrls": false,
+  "redirects": [
+    {
+      "source": "/docs/:path*",
+      "destination": "https://fastled.github.io/dox/:path*",
+      "permanent": true
+    }
+  ]
+}
