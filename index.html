@@ -1,88 +1,143 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Fastled-fastled.github.io by FastLED</title>
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="javascripts/respond.js"></script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <!--[if lt IE 8]>
-    <link rel="stylesheet" href="stylesheets/ie.css">
-    <![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<!DOCTYPE html>
+<html class="no-js">
 
-  </head>
-  <body>
-      <div id="header">
-        <nav>
-          <li class="fork"><a href="https://github.com/FastLED/fastled-fastled.github.io">View On GitHub</a></li>
-          <li class="downloads"><a href="https://github.com/FastLED/fastled-fastled.github.io/zipball/master">ZIP</a></li>
-          <li class="downloads"><a href="https://github.com/FastLED/fastled-fastled.github.io/tarball/master">TAR</a></li>
-          <li class="title">DOWNLOADS</li>
-        </nav>
-      </div><!-- end header -->
 
-    <div class="wrapper">
 
-      <section>
-        <div id="title">
-          <h1>Fastled-fastled.github.io</h1>
-          <p>Put a tagline here already!</p>
-          <hr>
-          <span class="credits left">Project maintained by <a href="https://github.com/FastLED">FastLED</a></span>
-          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>FastLED LED animation library for Arduino (formerly FastSPI_LED)</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" href="homepage/css/normalize.min.css">
+        <link rel="stylesheet" href="homepage/css/main.css">
+
+        <script src="homepage/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    </head>
+    <body>
+
+        <div class="header-container">
+            <header class="wrapper clearfix">
+                <h1 class="title">FastLED Animation Library</h1>
+            	<h4>&nbsp; formerly FastSPI_LED / FastSPI_LED2</h4>
+
+<!--
+                <nav>
+                    <ul>
+                <li><a href="https://fastled.github.io/dox/">Documentation</a></li>
+
+                <li><a href="http://fastled.io/releases">Releases</a></li>
+
+                <li><a href="http://fastled.io/blog">Blog</a></li>
+
+                <li><a href="http://fastled.io/code">Code</a></li>
+
+                <li><a href="http://fastled.io/wiki">Wiki</a></li>
+                
+                <li><a href="http://fastled.io/+">Community</a></li>
+                
+                <li><a href="http://fastled.io/issues">Issues</a></li>
+-->
+                    </ul>
+                </nav>
+            </header>  
         </div>
 
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+        <div class="main-container">
+            <div class="main wrapper clearfix">
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+                <article>
+                    <header>
+                        <h1>Fast, easy LED library for Arduino</h1>
+                        <p>FastLED is a fast, efficient, easy-to-use Arduino library for programming addressable LED strips and pixels such as WS2810, WS2811, LPD8806, Neopixel and <a href="https://github.com/FastLED/FastLED/wiki/Chipset-reference">more</a>.  FastLED is used by thousands of developers, in countless art and hobby projects, and in numerous commercial products.  </p>
+                        <p>We build FastLED to help you get started faster, develop your code faster, and make your code run faster.</p>
+                    </header>
+                    <section>
+                        <h2>Great compatibility</h2>
+                        <p>FastLED supports popular LEDs including Neopixel, WS2801, WS2811, WS2812B, LPD8806, TM1809, and <a href="https://github.com/FastLED/FastLED/wiki/Chipset-reference">more</a>.  The library runs on <a href="https://github.com/FastLED/FastLED/wiki/Overview#wiki-platforms">a wide range</a> of Arduino and compatible boards, including both AVR- and ARM- based microcontrollers.</p>
+                    </section>
+                    <section>
+                        <h2>Great features</h2>
+                        <p>In addition to fast, efficient, compatible LED driver code, FastLED also provides features that get your animations up and running fast:</p>
+                        <ul>
+                        <li><b><a href="https://github.com/FastLED/FastLED/wiki/Pixel-reference#wiki-chsv">Full HSV color support</a></b> as well as classic RGB</li>
+                        <li><b>Master brightness setting</b> (nondestructive) controls brightness, power use, and battery life</li>
+                        <li><b>Fast math and memory functions</b> up to 10X faster than standard Arduino libraries</li>
+                        <li><b>User community</b> of thousands, who share tips, ideas, and help</li>
+                        <li><b>Multi-year history</b> of active development and evolution</li>
+                        <li><b>Ruthless efficiency</b>, an almost fanatical devotion to performance, and nice RGB uniforms.</li>
+                        </ul>
+					</section>
+					<section>
+					<h2>Get started...</h2>
+					<p><a href="http://fastled.io/releases">Download the library</a> and <a href="https://github.com/FastLED/FastLED/wiki/Basic-usage">get started</a> coding!	
+					</section>
+					<section>
+					<p>&nbsp;</p>
+                        <hr>
+                        <p>Daniel Garcia (<a href="https://github.com/focalintent">focalintent</a>) created FastSPI_LED in 2010, FastSPI_LED2 in 2012.  
+                        <br>Mark Kriegsman (<a href="https://github.com/kriegsman">kriegsman</a>) joined the project in 2013.
+                    </section>
+<!--                    
+                    <footer>
+                        <h3>footer .h3</h3>
+                        <p>Lorem </p>
+                    </footer>
+-->
+                </article>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
+                <aside>
+<!--                    <h3>Links</h3>
+-->
+                    <ul>
+                <li><a href="https://fastled.github.io/dox/">Documentation</a></li>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+                <li><a href="http://fastled.io/releases">Releases</a></li>
 
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+                <li><a href="http://fastled.io/blog">Blog</a></li>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
 
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
+                <li><a href="http://fastled.io/code">Code</a></li>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+                <li><a href="http://fastled.io/wiki">Wiki</a></li>
+                
+                <li><a href="http://fastled.io/+">Community</a></li>
+                
+                <li><a href="http://fastled.io/issues">Issues</a></li>
+                    </ul>
+                </aside>
 
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+            </div> <!-- #main -->
+        </div> <!-- #main-container -->
 
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
 
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+        <div class="footer-container">
+            <footer class="wrapper">
+<!--                <h3>footer</h3>
+-->
+				
+                <p>
+                <a href="https://fastled.github.io/dox/">Documentation</a> &nbsp; &nbsp;
 
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
+                <a href="http://fastled.io/releases">Releases</a> &nbsp; &nbsp;
 
-    </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-              <script type="text/javascript">
-            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-          </script>
-          <script type="text/javascript">
-            try {
-              var pageTracker = _gat._getTracker("UA-45607313-1");
-            pageTracker._trackPageview();
-            } catch(err) {}
-          </script>
+                <a href="http://fastled.io/blog">Blog</a> &nbsp; &nbsp;
 
-  </body>
+                <a href="http://fastled.io/code">Code</a> &nbsp; &nbsp;
+
+                <a href="http://fastled.io/wiki">Wiki</a> &nbsp; &nbsp;
+                
+                <a href="http://fastled.io/+">Community</a> &nbsp; &nbsp;
+                
+                <a href="http://fastled.io/issues">Issues</a> &nbsp; &nbsp;
+				</p>                
+            </footer>
+        </div>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="homepage/js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
+
+        <script src="homepage/js/main.js"></script>
+    </body>
 </html>
