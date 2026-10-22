@@ -3,7 +3,14 @@ name: Deploy fastled.io
 on:
   push:
     branches: ["gh-pages"]
+  schedule:
+    - cron: '47 10 * * *'
   workflow_dispatch:
+    inputs:
+      docs_only:
+        description: Deploy only if the upstream documentation publication changed
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -13,9 +20,48 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build:
+  check:
     runs-on: ubuntu-24.04
     timeout-minutes: 5
+    outputs:
+      publication: ${{ steps.docs.outputs.publication }}
+      changed: ${{ steps.docs.outputs.changed }}
+      deploy: ${{ steps.docs.outputs.deploy }}
+      release_id: ${{ steps.docs.outputs.release_id }}
+      tag: ${{ steps.docs.outputs.tag }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Check the published documentation generation
+        id: docs
+        env:
+          DOCS_ONLY: ${{ inputs.docs_only || false }}
+        run: python3 scripts/import_docs.py check
+
+  record-check:
+    needs: check
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Record a successful documentation check at most monthly
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_ID: ${{ needs.check.outputs.release_id }}
+          RELEASE_TAG: ${{ needs.check.outputs.tag }}
+          RELEASE_CHANGED: ${{ needs.check.outputs.changed }}
+        run: python3 scripts/record_check.py
+
+  build:
+    needs: check
+    if: needs.check.outputs.deploy == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
     permissions:
       contents: read
       pages: read
@@ -29,7 +75,11 @@ jobs:
       - name: Stage static site
         run: |
           mkdir _site
-          git archive --format=tar HEAD -- . ':!.github' ':!README.md' | tar -xf - -C _site
+          git archive --format=tar HEAD -- . ':!.github' ':!README.md' ':!scripts' ':!.gitignore' | tar -xf - -C _site
+      - name: Import the verified documentation publication
+        env:
+          PUBLICATION_JSON: ${{ needs.check.outputs.publication }}
+        run: python3 scripts/import_docs.py import --site _site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4
         with:
