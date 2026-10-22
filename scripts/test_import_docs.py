@@ -138,6 +138,9 @@ class DocumentationImportTest(unittest.TestCase):
         _, changed = check_publication(base + "/upstream.json", base + "/current.json")
         self.assertTrue(changed)
         (self.root / "current.json").write_text("not JSON")
+        _, changed = check_publication(base + "/upstream.json", base + "/current.json")
+        self.assertTrue(changed)
+        (self.root / "upstream.json").write_text("not JSON")
         with self.assertRaises(ValueError):
             check_publication(base + "/upstream.json", base + "/current.json")
 
