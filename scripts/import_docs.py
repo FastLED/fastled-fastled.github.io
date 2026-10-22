@@ -64,7 +64,14 @@ def fetch_manifest(url: str, *, missing_ok: bool = False) -> dict | None:
 
 def check_publication(upstream: str, current: str) -> tuple[dict, bool]:
     manifest = fetch_manifest(upstream)
-    deployed = fetch_manifest(current, missing_ok=True)
+    try:
+        deployed = fetch_manifest(current, missing_ok=True)
+    except (ValueError, OSError) as error:
+        # The verified upstream can repair a missing or corrupt deployed marker.
+        print(
+            f"Deployed publication is unreadable; importing verified upstream: {error}"
+        )
+        deployed = None
     return manifest, manifest != deployed
 
 
