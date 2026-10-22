@@ -72,6 +72,13 @@ def check_publication(upstream: str, current: str) -> tuple[dict, bool]:
             f"Deployed publication is unreadable; importing verified upstream: {error}"
         )
         deployed = None
+    if deployed is not None:
+        upstream_generation = tuple(map(int, manifest["generation"].split("-")))
+        deployed_generation = tuple(map(int, deployed["generation"].split("-")))
+        if upstream_generation < deployed_generation:
+            raise ValueError(
+                "Upstream publication is older than deployed; retry after Pages cache propagation"
+            )
     return manifest, manifest != deployed
 
 
