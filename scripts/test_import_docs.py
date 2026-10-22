@@ -137,6 +137,11 @@ class DocumentationImportTest(unittest.TestCase):
         (self.root / "upstream.json").write_text(json.dumps(updated))
         _, changed = check_publication(base + "/upstream.json", base + "/current.json")
         self.assertTrue(changed)
+        (self.root / "current.json").write_text(json.dumps(updated))
+        (self.root / "upstream.json").write_text(json.dumps(self.manifest))
+        with self.assertRaisesRegex(ValueError, "older than deployed"):
+            check_publication(base + "/upstream.json", base + "/current.json")
+        (self.root / "upstream.json").write_text(json.dumps(updated))
         (self.root / "current.json").write_text("not JSON")
         _, changed = check_publication(base + "/upstream.json", base + "/current.json")
         self.assertTrue(changed)

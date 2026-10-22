@@ -23,6 +23,9 @@ GitHub release asset. These downloads outlive the one-day Pages Actions artifact
 `scripts/import_docs.py` verifies the download and its embedded release metadata
 before adding the documentation to `_site/docs/`. Import errors fail the workflow
 before deployment, leaving the live website intact.
+An upstream generation older than the deployed generation also fails the check,
+preventing a stale GitHub Pages cache from rolling documentation backward.
+Retry after cache propagation if this occurs.
 
 The existing publishing workflow checks daily at **10:47 UTC**. A changed
 publication triggers deployment, including an intentional rebuild of the same
