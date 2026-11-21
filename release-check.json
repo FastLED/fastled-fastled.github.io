@@ -1,7 +1,7 @@
 {
-  "checked_at": "2026-10-22T05:44:10.277072Z",
-  "release_id": 416153555,
-  "tag": "3.10.8",
-  "changed": true,
-  "run_url": "https://github.com/FastLED/fastled-fastled.github.io/actions/runs/39729693841"
+  "checked_at": "2026-11-21T10:50:15.377123Z",
+  "release_id": 452247446,
+  "tag": "3.10.10",
+  "changed": false,
+  "run_url": "https://github.com/FastLED/fastled-fastled.github.io/actions/runs/44896187351"
 }
